@@ -1,0 +1,11 @@
+body{
+    background-color: #1E2019;
+    color : white;
+}
+
+#logo {
+    margin-top: 3em;
+    margin-bottom: 3em;
+    width: 50%;
+    transform: translate(50%, 0);
+}
