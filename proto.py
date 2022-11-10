@@ -1,48 +1,84 @@
-f=open("analyse/sfr_facture_fixe.txt",'r')
-#f=open("analyse/sfr_facture_mobil.txt",'r')
-#f=open("analyse/facture_EDF.txt",'r')
+#analyse/sfr_facture_fixe.txt
+#analyse/sfr_facture_mobil.txt
+#analyse/facture_EDF.txt
+#analyse/Facture_topachat.txt
+#analyse/Facture_place_concert.txt
+#analyse/Fact.02_03_2022.txt
 
-# variable pour le montant
-tmpMontant="start"
-ligne = f.readline()
-montant = 0
-ttc = 0
+import os.path
 
-# variable pour l'email
-tmpEmail="ouioui@oui.oui"
-email = 0
+mailType = ["hotmail","gmail","orange","sfr","free"]
+mailTerm = ["fr", "com"]
 
-while(ligne != '') :
-    ligne = ligne.split()
+montantTest = ["ttc" ,"prélever","prélevé","payer"]
+prixTest=['0','1','2','3','4','5','6','7','8','9' ]
 
-    for mot in ligne :
-        # test pour récup la Ligne du montant 
-        if mot == "Montant" :
-            montant = 1
-        if mot == "TTC" or mot =="prélever" or mot == "prélevé":
-            ttc = 1
-        # test de récup du prix
-        if mot=='€' and montant and ttc:
-            # enlève les caractères collés au prix
-            if tmpMontant[0]!='0' and tmpMontant[0]!='1' and tmpMontant[0]!='2' and tmpMontant[0]!='3' and tmpMontant[0]!='4' and tmpMontant[0]!='5' and tmpMontant[0]!='6' and tmpMontant[0]!='7' and tmpMontant[0]!='8' and tmpMontant[0]!='9' :
-                tmpMontant=tmpMontant[1:]    
-            # ICI MISE EN BDD
-            print(tmpMontant)
-        tmpMontant=mot
+while True :
+    try :
+        # variable pour le montant
+        tmpMontant="start"
+        montant = 0
+        ttc = 0
+        nl = 0
 
-        if mot == "email" :
-            email += 1
-        if email == 2 :
-            tmpEmail = mot
-            print(tmpEmail)
-            email = 0
-        if email == 1 and mot ==':' :
-            email += 1
+        email="OuiOui@gmail.com"
+
+        # Récup nom fichier
+        print("\nPour arrêter CTRL-C")
+        name = input("Nom facture : ")
         
-        
-    # passage à la ligne suivante
-    ligne = f.readline()
-    montant = 0
-    ttc = 0
+        with open(name, "r") as f :
+            allFile = f.read()
+            lignes = allFile.split("\n")
 
-f.close()
+        for l in lignes :
+            try :
+                if nl == 1 and montant :
+                    if not l[len(l)-1] in prixTest :
+                        l = l[:-1]
+                    numb = float(l)
+                    nl=0
+                    montant = 0
+                    print(l)
+            except ValueError : 
+                pass
+            ligne = l.split()
+
+            for mot in ligne :
+                mot = mot.lower()
+                # test pour récup la Ligne du montant 
+                if mot == "montant" :
+                    montant = 1
+                    nl = 1
+                if mot in montantTest:
+                    ttc = 1
+                    print(tmpMontant)
+                
+                # enlève les caractères collés au prix
+                taille = len(tmpMontant)-1
+                if not tmpMontant[taille] in prixTest :
+                    tmpMontant=tmpMontant[:-1]    
+                
+                if mot=='€' and montant : #and ttc :
+                    # ICI MISE EN BDD
+                    nl=0
+                    montant = 0
+                    
+                tmpMontant=mot
+                # test de récup du prix
+                
+                # Récup email
+                if mot.find("@") != -1 :
+                    for typ in mailType :
+                        for ter in mailTerm :
+                            if mot[mot.find("@")+1:] == typ+"."+ter :
+                                email = mot
+                                print(email)
+                                # ICI RÉCUP DU MAIL (ID)
+                
+            montant = 0
+            ttc = 0
+    except KeyboardInterrupt:
+        print("\nBye !")
+        break
+
