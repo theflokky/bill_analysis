@@ -1,0 +1,8 @@
+{
+    "reponse" : {
+        "to" : "Application Tierce",
+        "from" : "BDD",
+        "id_discussion" : 1,
+        "liste_entreprises" : ["giroud", "mbappe", "messi"]
+    }
+}
