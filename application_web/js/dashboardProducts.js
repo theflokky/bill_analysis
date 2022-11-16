@@ -3,23 +3,27 @@ var chartLabels = [];
 var chartData = [];
 
 
+
 //Recuperation du contenu du fichier JSON
 fetch('../../simulation_reseau/test.json')
     .then((response) => response.json())
     .then((json) => {
         listeEntreprises = json['reponse']['liste_entreprises'];
+        prixEntreprises = json['reponse']['prix_entreprises'];
         id_requete = json['reponse']['id_discussion']
-        
         for (i in listeEntreprises) {
             chartLabels.push(listeEntreprises[i]);
         }
+        for (i in prixEntreprises) {
+            chartData.push(prixEntreprises[i]);
+        }
+        return listeEntreprises, prixEntreprises;
     });
-
 
 
 //Creation des tableaux pour le graphique
 
-var tempData = []
+var tempData = [];
 
 //Lecture du fichier json 
 
@@ -30,6 +34,10 @@ tempData.push(60);
 
 
 tempData.push(10);
+
+console.log(chartLabels);
+console.log(chartData);
+console.log(tempData);
 
 
 const data = {

@@ -3,6 +3,7 @@
         "to" : "Application Tierce",
         "from" : "BDD",
         "id_discussion" : 1,
-        "liste_entreprises" : ["giroud", "mbappe", "messi"]
+        "liste_entreprises" : ["giroud", "mbappe", "messi"],
+        "prix_entreprises" : [30, 10, 60]
     }
 }
