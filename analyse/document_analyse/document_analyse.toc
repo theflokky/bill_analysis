@@ -1,13 +1,31 @@
 \babel@toc {french}{}\relax 
 \contentsline {section}{\numberline {1}Définition du Projet}{2}{section.1}%
 \contentsline {section}{\numberline {2}Modélisation de la Base de Données}{2}{section.2}%
-\contentsline {section}{\numberline {3}Modélisation des Messages}{2}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Version XML}{2}{subsection.3.1}%
-\contentsline {subsubsection}{\numberline {3.1.1}}{2}{subsubsection.3.1.1}%
-\contentsline {subsection}{\numberline {3.2}Version JSON}{2}{subsection.3.2}%
-\contentsline {section}{\numberline {4}Choix des Technologies}{2}{section.4}%
-\contentsline {section}{\numberline {5}Tâches et répartition}{3}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Analyse de Fichiers}{3}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}Communication de la Base de Données}{3}{subsection.5.2}%
-\contentsline {subsection}{\numberline {5.3}Génération des requêtes depuis l'application métier}{3}{subsection.5.3}%
-\contentsline {subsection}{\numberline {5.4}Réception des Réponses et Affichage coté Application Métier}{3}{subsection.5.4}%
+\contentsline {section}{\numberline {3}Modélisations du Message 1}{2}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Intitulé du Message}{2}{subsection.3.1}%
+\contentsline {subsubsection}{\numberline {3.1.1}Requête}{2}{subsubsection.3.1.1}%
+\contentsline {subsubsection}{\numberline {3.1.2}Réponse}{2}{subsubsection.3.1.2}%
+\contentsline {subsection}{\numberline {3.2}Version JSON}{3}{subsection.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.1}JSON Schéma}{3}{subsubsection.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.2}JSON}{3}{subsubsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.3}Version XML}{3}{subsection.3.3}%
+\contentsline {subsubsection}{\numberline {3.3.1}DTD}{3}{subsubsection.3.3.1}%
+\contentsline {subsubsection}{\numberline {3.3.2}XSD}{3}{subsubsection.3.3.2}%
+\contentsline {subsubsection}{\numberline {3.3.3}XML}{3}{subsubsection.3.3.3}%
+\contentsline {section}{\numberline {4}Modélisations du Message 2}{3}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Intitulé du Message}{3}{subsection.4.1}%
+\contentsline {subsubsection}{\numberline {4.1.1}Requête}{3}{subsubsection.4.1.1}%
+\contentsline {subsubsection}{\numberline {4.1.2}Réponse}{3}{subsubsection.4.1.2}%
+\contentsline {subsection}{\numberline {4.2}Version JSON}{3}{subsection.4.2}%
+\contentsline {subsubsection}{\numberline {4.2.1}JSON Schéma}{3}{subsubsection.4.2.1}%
+\contentsline {subsubsection}{\numberline {4.2.2}JSON}{3}{subsubsection.4.2.2}%
+\contentsline {subsection}{\numberline {4.3}Version XML}{3}{subsection.4.3}%
+\contentsline {subsubsection}{\numberline {4.3.1}DTD}{3}{subsubsection.4.3.1}%
+\contentsline {subsubsection}{\numberline {4.3.2}XSD}{3}{subsubsection.4.3.2}%
+\contentsline {subsubsection}{\numberline {4.3.3}XML}{3}{subsubsection.4.3.3}%
+\contentsline {section}{\numberline {5}Choix des Technologies}{3}{section.5}%
+\contentsline {section}{\numberline {6}Tâches et répartition}{4}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Analyse de Fichiers}{4}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Communication de la Base de Données}{4}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Génération des requêtes depuis l'application métier}{4}{subsection.6.3}%
+\contentsline {subsection}{\numberline {6.4}Réception des Réponses et Affichage coté Application Métier}{4}{subsection.6.4}%

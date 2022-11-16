@@ -33,11 +33,41 @@ Projet qui analysera des factures. Nous allons nous cantonner à 2 types de mess
     \includegraphics[scale=0.3]{schema_bdd.png}
     \end{center}
 
-\section{Modélisation des Messages}
-    \subsection{Version XML}
-        \subsubsection{}
-
+\section{Modélisations du Message 1}
+    \subsection{Intitulé du Message}
+        \subsubsection{Requête} 
+        L'application métier demande à la Base de Données de lui envoyer le total de toutes les factures d'une entreprise cible et/ou d'une période cible.
+        \subsubsection{Réponse}
+        La Base de Données renvoie la somme de tous les totaux de chaque factures correspondant aux contraintes énoncées dans la requête.
     \subsection{Version JSON}
+        \subsubsection{JSON Schéma}
+        
+        \subsubsection{JSON}
+
+    \subsection{Version XML}
+        \subsubsection{DTD}
+        
+        \subsubsection{XSD}
+        
+        \subsubsection{XML}
+
+\section{Modélisations du Message 2}
+    \subsection{Intitulé du Message}
+        \subsubsection{Requête} 
+        L'application métier demande à la Base de Données de lui envoyer la liste des entreprises lui ayant vendu un produit spécifique.
+        \subsubsection{Réponse}
+        La Base de Données renvoie la liste de toutes les entreprises lui ayant vendu ce produit.
+    \subsection{Version JSON}
+        \subsubsection{JSON Schéma}
+            
+        \subsubsection{JSON}
+    
+    \subsection{Version XML}
+        \subsubsection{DTD}
+            
+        \subsubsection{XSD}
+            
+        \subsubsection{XML}
 
 \section{Choix des Technologies}
 Pour se projet nous allons utilisé du Python côté Serveur pour l'analyse et la gestion de la base de données. Pour le côté Application Métier, nous utiliserons les technologies Web (HTML, CSS et JavaScript). Nous utiliserons des messages écrits en JSON pour communiquer entre les deux dans un dossier qui simulera le réseau.
