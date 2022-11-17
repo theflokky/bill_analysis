@@ -19,7 +19,7 @@ N° TVA INTRA :FR 79 554 500 199 - N° ACCISE :W 1073 - Code APE 4871Z ETA BONNE
         
 
 CLIENT = BONNEFOY LAURENT E ENTREPRISE DE TRAVAUX AGRICOLES
-LIEU DIT ALEYSSON, 43200 ST JEURES
+ADRESSE LIEU DIT ALEYSSON, 43200 ST JEURES
 ENTREPRISE DE TRAVAUX AGRICOLES 2
 43200 ST_JEURES 
 | N° CLIENT DATE mn
@@ -66,11 +66,7 @@ DESIGNATION
 
 P00072 Excellium Pro Non Routier 1025,00 /1000L
 
-Produit P00072 :
-
- 
-
-P00072 Excellium Pro Non Routier de qualité sipérieure
+Produit : P00072 Excellium Pro Non Routier de qualité sipérieure
 
  
 
@@ -139,7 +135,6 @@ T-PSE (Charvet lamure bianco)_
 Nous contacter : | :
 Service GM
 
-Produits pétroliers et bois (granulés et bûches) 04 20 207 207
 
 Gaz/électricité = 04 20 207 201
 
@@ -155,7 +150,7 @@ AD Te a a Dead ee ou LD han
 montant de l'indemnité forfaitaire pour les frais de recouvrement est de 40 € HTVA:
 Ste in
 TRES IMPORTANT : HOUL DOMESTIQUE ET GAZOLE NON ROUTIER :
-Produit à fiscalité spécifique et aux usages règlementés, Interdit à tous autres usages non spécia-
+ProduitS à fiscalité spécifique et aux usages règlementés, Interdit à tous autres usages non spécia-
 lement autorisés. i
 Le présent document doit être conservé pendant une période de 5 ans à disposition de i
 l'Administration des Douanes et Droits. :
