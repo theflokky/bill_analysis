@@ -57,7 +57,8 @@ def message1Interface(window):
     enterpriseNameInput.place(x=200, y=190)
 
     # submit button
-    submitButton = Button(canvas, text="Soumettre")
+    submitButton = Button(canvas, text="Soumettre",
+                          command=lambda: getMessage1(clientNameInput, startingDateInput, endingDateInput, enterpriseNameInput))
     submitButton.place(x=220, y=220)
 
     canvas.place(x=0, y=0)
@@ -83,7 +84,8 @@ def message2Interface(window):
     productNameInput.place(x=200, y=130)
 
     # submit button
-    submitButton = Button(canvas, text="Soumettre")
+    submitButton = Button(canvas, text="Soumettre",
+                          command=lambda: getMessage2(clientNameInput, productNameInput))
     submitButton.place(x=220, y=220)
     canvas.place(x=600, y=0)
 
@@ -94,5 +96,20 @@ def results1Interface(window):
     canvas.place(x=0, y=600)
 
 
-def getEntryMessage1():
-    return 1
+def getMessage1(clientNameInput, startingDateInput, endingDateInput, enterpriseNameInput):
+    clientName = clientNameInput.get()
+    startingDate = startingDateInput.get()
+    endingDate = endingDateInput.get()
+    enterpriseName = enterpriseNameInput.get()
+
+    print("Error : Empty Fields")
+
+
+def getMessage2(clientNameInput, productNameInput):
+    clientName = clientNameInput.get()
+    productName = productNameInput.get()
+
+    if (clientName == '' or productName == ''):
+        print("Error : Empty Fields")
+    # else:
+        # Launching the JSON Generation Process
