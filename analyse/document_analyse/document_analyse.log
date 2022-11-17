@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2022.11.10)  16 NOV 2022 14:37
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2022.11.10)  16 NOV 2022 16:22
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -394,13 +394,13 @@ Package rerunfilecheck Info: File `document_analyse.out' has not changed.
 Here is how much of TeX's memory you used:
  11459 strings out of 478287
  179944 string characters out of 5849288
- 502997 words of memory out of 5000000
+ 502998 words of memory out of 5000000
  29471 multiletter control sequences out of 15000+600000
  480855 words of font info for 59 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  60i,6n,63p,511b,426s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/share/texmf/fonts/type1/public/cm-super/sfbx1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1728.pfb>
-Output written on document_analyse.pdf (4 pages, 185756 bytes).
+Output written on document_analyse.pdf (4 pages, 186075 bytes).
 PDF statistics:
  218 PDF objects out of 1000 (max. 8388607)
  196 compressed objects within 2 object streams
