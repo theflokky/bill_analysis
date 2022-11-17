@@ -1,10 +1,10 @@
 {
     "reponse" : {
-        "type" : 1,
+        "type" : 2,
         "to" : "appMetier",
         "from" : "bdd",
         "id_discussion" : 1,
         "nom_client" : "Proton",
-        "liste_entreprises" : ["giroud", "mbappe", "messi"]
+        "total": 65000
     }
 }
