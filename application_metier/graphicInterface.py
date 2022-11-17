@@ -1,4 +1,5 @@
 from tkinter import *
+from observer import *
 
 # Base function for the graphic interface
 
@@ -102,7 +103,25 @@ def getMessage1(clientNameInput, startingDateInput, endingDateInput, enterpriseN
     endingDate = endingDateInput.get()
     enterpriseName = enterpriseNameInput.get()
 
-    print("Error : Empty Fields")
+    if (clientName == ''):
+        print("Error : Client Name Empty")
+    elif (startingDate == '' and endingDate == '' and enterpriseName == ''):
+        print("Error : EmptyFields")
+    elif (enterpriseName == '') and (startingDate != '' and endingDate != ''):
+        print("Date Case")
+        # Launching JSON Generation Process
+
+        awaitingResponse()
+    elif (enterpriseName != '') and (startingDate != '' and endingDate != ''):
+        print("Date and Enterprise Case")
+        # Launching JSON Generation Process
+
+        awaitingResponse()
+    elif (enterpriseName != '') and (startingDate == '' and endingDate == ''):
+        print("Enterprise case")
+        # Launching JSON Generation Process
+
+        awaitingResponse()
 
 
 def getMessage2(clientNameInput, productNameInput):
@@ -111,5 +130,8 @@ def getMessage2(clientNameInput, productNameInput):
 
     if (clientName == '' or productName == ''):
         print("Error : Empty Fields")
-    # else:
+    else:
         # Launching the JSON Generation Process
+
+        # Awaiting for the response
+        awaitingResponse()

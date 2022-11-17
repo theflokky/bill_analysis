@@ -6,7 +6,7 @@ from resultats import *
 
 
 class Watcher:
-    DIRECTORY_TO_WATCH = "../simulation_reseau"
+    DIRECTORY_TO_WATCH = "../simulation_reseau/responses"
 
     def __init__(self):
         self.observer = Observer()
@@ -17,12 +17,9 @@ class Watcher:
             event_handler, self.DIRECTORY_TO_WATCH, recursive=True)
         self.observer.start()
 
-        try:
-            while True:
-                time.sleep(5)
-        except:
-            self.observer.stop()
-            print("Error")
+        time.sleep(20)
+        self.observer.stop()
+
         self.observer.join()
 
 
@@ -32,3 +29,8 @@ class EventHandler(FileSystemEventHandler):
         if event.event_type == 'created':
             print("Creation of : ", event.src_path)
             readJson(event.src_path)
+
+
+def awaitingResponse():
+    w = Watcher()
+    w.run()
