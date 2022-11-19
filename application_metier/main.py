@@ -1,4 +1,4 @@
-from jobApp import display
+from userInterface import display
 
 
 if __name__ == "__main__":
