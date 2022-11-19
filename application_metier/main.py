@@ -1,5 +1,4 @@
-from observer import *
-from graphicInterface import display
+from jobApp import display
 
 
 if __name__ == "__main__":
