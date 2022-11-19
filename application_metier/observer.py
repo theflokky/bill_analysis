@@ -6,7 +6,7 @@ from resultats import *
 
 
 class Watcher:
-    DIRECTORY_TO_WATCH = "../simulation_reseau/responses"
+    DIRECTORY_TO_WATCH = "simulation_reseau/responses"
 
     def __init__(self):
         self.observer = Observer()
@@ -17,7 +17,7 @@ class Watcher:
             event_handler, self.DIRECTORY_TO_WATCH, recursive=True)
         self.observer.start()
 
-        time.sleep(20)
+        time.sleep(10)
         self.observer.stop()
 
         self.observer.join()
