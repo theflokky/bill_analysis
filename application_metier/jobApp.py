@@ -96,10 +96,14 @@ def readJson():
         clientName = data['reponse']['nom_client']
         if (messageType == 1):
             enterpriseList = data['reponse']['liste_entreprises']
+            file.close()
+            os.remove(currentFilePath)
             return enterpriseList
             print(enterpriseList)
         elif (messageType == 2):
             total.append(data['reponse']['total'])
+            file.close()
+            os.remove(currentFilePath)
             return total
             print(total)
         else:
