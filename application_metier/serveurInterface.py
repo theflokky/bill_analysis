@@ -9,14 +9,20 @@ from observateur import *
 
 
 def show(c):
-    global listeVariableImportante
     listeVariableImportante = ["fichier"]
     fenetre = Tk()
     fenetre.geometry("800x600")
     fenetre.title("Facturas Serveur")
     serveurInterface(fenetre, c, listeVariableImportante)
-    w = Watcher("../simulation_reseau/responses")
-    obs = threading.Thread(target=lambda : w.run(listeVariableImportante), daemon=True)
+
+
+    if (os.getcwd() == os.path.dirname(os.path.abspath(__file__))):
+        w = Watcher("../simulation_reseau/responses")
+
+    else :
+        w = Watcher("simulation_reseau/responses")
+    
+    obs = threading.Thread(target=lambda : w.run(listeVariableImportante, c), daemon=True)
     obs.start()
     fenetre.mainloop()
 
@@ -53,21 +59,49 @@ def inclureBDD(connection, l, oL):
 
         cursor = connection.cursor()
 
-        cursor.execute("""
+        # Checking if clients name already inside
+
+        cursor.execute("""SELECT nom FROM Clients""")
+
+        check = cursor.fetchall()
+        for n in check :
+            if n[0] == l[1]:
+                # Clients already inside Database
+                succesnum += 1
+                cursor.execute("""SELECT num FROM Clients WHERE nom=(%s)""", (l[1],))
+                selector_client = cursor.fetchall()
+                break
+        else:
+            cursor.execute("""
                 INSERT INTO Clients (nom, adresse) VALUES (%s, %s)
                 """, (l[1], l[2]))
     
-        selector_client = cursor.lastrowid
+            selector_client = cursor.lastrowid
     
-        succesnum += cursor.rowcount
+            succesnum += cursor.rowcount
+
+        # Checking if entreprise already inside         
     
-    
-        cursor.execute("""
+        cursor.execute("""SELECT siren FROM Entreprises""")
+
+        check = cursor.fetchall()
+
+        for s in check :
+            if s[0] == l[5]:
+                # Entreprises already inside
+
+                succesnum += 1
+                cursor.execute("""SELECT num FROM Entreprises WHERE siren=(%s)""", (l[5],))
+                selector_entreprise = cursor.fetchall()
+                break
+
+        else:
+            cursor.execute("""
                         INSERT INTO Entreprises (siren) VALUES (%s)""", (l[5],))
     
-        selector_entreprise = cursor.lastrowid
+            selector_entreprise = cursor.lastrowid
     
-        succesnum += cursor.rowcount
+            succesnum += cursor.rowcount
     
         prix = l[4].replace(",",".")
         cursor.execute("""
@@ -80,17 +114,34 @@ def inclureBDD(connection, l, oL):
     
     
     for p in l[3]:
-        cursor.execute("""
+        if isinstance(selector_commande, int):
+            cursor.execute("""
                     INSERT INTO Produits (numCommande, produit) VALUES (%s, %s)
         """, (selector_commande,p))
     
-        succesnum += cursor.rowcount
+            succesnum += cursor.rowcount
+
+        else:
+            cursor.execute("""
+                    INSERT INTO Produits (numCommande, produit) VALUES (%s, %s)
+        """, (selector_commande[0],p))
     
+            succesnum += cursor.rowcount  
     
-    cursor.execute(""" 
+        if isinstance(selector_client, int) and isinstance(selector_entreprise, int):
+                cursor.execute(""" 
             INSERT INTO Factures (prix, numClient, numEntreprise, numCommande) VALUES (%s, %s, %s, %s)
     """, (int(float(prix)), selector_client, selector_entreprise, selector_commande))
-    succesnum += cursor.rowcount
+        
+        elif isinstance(selector_client, int):
+            cursor.execute(""" 
+            INSERT INTO Factures (prix, numClient, numEntreprise, numCommande) VALUES (%s, %s, %s, %s)
+    """, (int(float(prix)), selector_client, selector_entreprise[0], selector_commande))
+        else:
+            cursor.execute(""" 
+            INSERT INTO Factures (prix, numClient, numEntreprise, numCommande) VALUES (%s, %s, %s, %s)
+    """, (int(float(prix)), selector_client[0], selector_entreprise[0], selector_commande))
+        succesnum += cursor.rowcount
 
 
 

@@ -1,0 +1,10 @@
+{
+
+    "requete" : {
+        "type" : 2,
+        "id_discussion" : 1,
+        "nom_client" : "Tiplouf",
+        "produit" : "pile"
+    }
+
+}

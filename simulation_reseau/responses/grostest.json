@@ -1,0 +1,10 @@
+{
+
+    "requete" : {
+        "type" : 1,
+        "id_discussion" : 1,
+        "nom_client" : "Tiplouf",
+        "num_siren" : "123456789"
+    }
+
+}
