@@ -26,6 +26,7 @@ def getMessage1(window, clientNameInput, startingDateInput, endingDateInput, ent
     elif (enterpriseName != '') and (startingDate != '' and endingDate != ''):
         print("Date and Enterprise Case")
         # Launching JSON Generation Process
+        generateJson1(clienName,startingDate, endingDate, enterpriseName)
 
         awaitingResponse()
         total =readJson()
@@ -47,6 +48,7 @@ def getMessage2(window, clientNameInput, productNameInput):
         print("Error : Empty Fields")
     else:
         # Launching the JSON Generation Process
+         generateJson2(clientName,productName)
 
         # Awaiting for the response
         awaitingResponse()
@@ -275,7 +277,28 @@ def results2Interface(window, enterpriseList, clientName, productName):
     enterpriseNameLabel.place(x = 900, y = 80)
     for i in range(0, len(enterpriseList)):
         enterpriseNameLabel.insert(i, enterpriseList[i])
-
+def generateJson2(clienNameInput,productNameInput):
+      f=open("./requete.json","w")
+      tmp = []
+      d = {}
+      d["message_type"] = "2"
+      d["nom_client"] = clienNameInput
+      d["nom_produit"] = productNameInput
+      tmp.append(d)
+      json.dump(tmp,f)
+      f.close();
+def generateJson(clienNameInput,startingDateInput, endingDateInput, enterpriseNameInput):
+      f=open("./requete.json","w")
+      
+      tmp = []
+      d["message_type"] = "1"
+      d["nom_client"] = clienNameInput
+      d["date_debut"] = startingDateInput
+      d["date_fin"] = endingDateInput
+      d["nom_entreprise"] = enterpriseNameInput
+      tmp.append(d)
+      json.dump(tmp,f)
+      f.close();
 
 
 
