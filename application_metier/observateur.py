@@ -55,9 +55,14 @@ def repondre(id, liste, connect, mr):
 
 
     jsReponse = json.dumps(reponse, indent=3)
-    path = os.getcwd()+"/simulation_reseau/responses/"
 
-    with open(path+"requete"+str(id)+".json","w") as outputFile:
+    if (os.getcwd() == os.path.dirname(os.path.abspath(__file__))):
+        path = os.path.dirname(os.path.abspath(__file__))+"/simulation_reseau/responses"
+
+    else :
+        path = os.getcwd()+"/simulation_reseau/responses"
+
+    with open(path+"/requete"+str(id)+".json","w+") as outputFile:
         outputFile.write(jsReponse)
 
 

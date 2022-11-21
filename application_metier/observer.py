@@ -22,7 +22,7 @@ class Watcher:
 
         try:
             while True:
-                time.sleep(1)
+                time.sleep(4)
 
         except:
             self.observer.stop()

@@ -17,10 +17,10 @@ def show(c):
 
 
     if (os.getcwd() == os.path.dirname(os.path.abspath(__file__))):
-        w = Watcher("../simulation_reseau/responses")
+        w = Watcher("../simulation_reseau/requests")
 
     else :
-        w = Watcher("simulation_reseau/responses")
+        w = Watcher("simulation_reseau/requests")
     
     obs = threading.Thread(target=lambda : w.run(listeVariableImportante, c), daemon=True)
     obs.start()
