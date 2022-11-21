@@ -9,7 +9,7 @@ import threading
 currentFilePath = ""
 
 class Watcher:
-    DIRECTORY_TO_WATCH = "simulation_reseau/responses"
+    DIRECTORY_TO_WATCH = "simulation_reseau/responses/"
 
     def __init__(self):
         self.observer = Observer()
@@ -37,9 +37,11 @@ class EventHandler(FileSystemEventHandler):
         global currentFilePath
         if event.event_type == 'created':
             print("Creation of : ", event.src_path)
+            print(event.src_path, currentFilePath, "\n")
             currentFilePath = event.src_path
         elif event.event_type == 'modified':
             print("Modification of : ", event.src_path)
+            print(event.src_path, currentFilePath, "\n")
             currentFilePath = event.src_path
 
 
