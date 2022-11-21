@@ -9,7 +9,7 @@ import threading
 currentFilePath = ""
 
 class Watcher:
-    DIRECTORY_TO_WATCH = "simulation_reseau/responses"
+    DIRECTORY_TO_WATCH = "simulation_reseau/responses/"
 
     def __init__(self):
         self.observer = Observer()
