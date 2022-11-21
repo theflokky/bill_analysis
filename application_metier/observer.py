@@ -4,6 +4,7 @@ import os
 from watchdog.observers import Observer
 from watchdog.events import FileSystemEventHandler
 import json
+import threading
 
 currentFilePath = ""
 
@@ -19,8 +20,13 @@ class Watcher:
             event_handler, self.DIRECTORY_TO_WATCH, recursive=True)
         self.observer.start()
 
-        time.sleep(10)
-        self.observer.stop()
+        try:
+            while True:
+                time.sleep(1)
+
+        except:
+            self.observer.stop()
+            print("Error")
 
         self.observer.join()
 
@@ -35,8 +41,10 @@ class EventHandler(FileSystemEventHandler):
 
 
 def awaitingResponse():
+
     w = Watcher()
-    w.run()
+    obs = threading.Thread(target=lambda : w.run(), daemon=True)
+    obs.start()
 
 def readJson():
     global currentFilePath

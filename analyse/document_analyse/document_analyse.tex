@@ -9,7 +9,7 @@
 \usepackage[french]{babel}
 \usepackage{hyperref}
 
-\title{Document d'analyse : Factures}
+\title{Rapport : Factures}
 \author{Pierre BONNEFOY, Ilyes ZEGHDALLOU, Alexandre MARINE, Aloys LANA}
 
 
@@ -22,13 +22,14 @@
 
 \newpage
 \section{Définition du Projet}
-Projet qui analysera des factures. Nous allons nous cantonner à 2 types de messages :
-\begin{itemize}
-    \item L'Application Métier demandera le montant total de toutes les factures sur une période données et/ou par une entreprise spécifique.
-    \item L'Application Métier demandera la liste des entreprises lui ayant vendu un produit spécifique.
-\end{itemize}
+Pour ce projet, nous avons choisit de nous lancer dans la création d'un logiciel d'analyse des Factures. Notre positionnement sera le suivant : nous sommes une entreprise tierce qui fournit un service à des clients (professionnels ou particuliers). Le client peut rentrer ses factures sur notre système et ensuite peut executer deux actions sur celle ci :
+\begin{enumerate}
+    \item Demander le montant total de toutes ses factures sur une période donnée ou/et provenant d'une entreprise spécifique.
+    \item Demander la liste des entreprises qui lui ont vendu un produit spécifique.
+\end{enumerate}
 
 \section{Modélisation de la Base de Données}
+A CHANGER ALEX DOIT ENVOYER UNE AUTRE VERSION
     \begin{center}
     \includegraphics[scale=0.3]{schema_bdd.png}
     \end{center}
@@ -90,8 +91,14 @@ Projet qui analysera des factures. Nous allons nous cantonner à 2 types de mess
                         }
             }
         \end{verbatim}
-\section{Choix des Technologies}
-Pour se projet nous allons utilisé du Python côté Serveur pour l'analyse et la gestion de la base de données. Pour le côté Application Métier, nous utiliserons les technologies Web (HTML, CSS et JavaScript). Nous utiliserons des messages écrits en JSON pour communiquer entre les deux dans un dossier qui simulera le réseau.
+
+\section{Choix des technologies}
+Pour ce projet, nous avons choisit d'utiliser le langage Python au vu de sa simplicité d'utilisation et de sa diversité de bibliothèques permettant de nous facilité le travail.\\
+En voici la liste :
+\begin{enumerate}
+    \item json : une bibliothèque permettant de traiter et de générer des fichiers JSON.
+    \item tkinter : une bibliothèque graphique qui nous a permit de réalisé l'interface utilisateur.
+\end{enumerate}
 
 \section{Tâches et répartition}
     \subsection{Analyse de Fichiers}
@@ -165,4 +172,12 @@ Pour se projet nous allons utilisé du Python côté Serveur pour l'analyse et l
         \hline
     \end{tabular}
     \end{center}
+
+
+\section{Problèmes Rencontrés}
+    \subsection{Analyse des documents}
+
+    \subsection{Base de Données}
+
 \end{document}
+
