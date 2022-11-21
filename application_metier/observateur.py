@@ -30,7 +30,7 @@ def repondre(id, liste, connect, mr):
 
     
     if mr == 1:
-        cursor.execute("""SELECT SUM(prix) AS total FROM Factures inner join Entreprises on Entreprises.num = Factures.numEntreprise WHERE Entreprises.siren=(%s)""",(liste[6][2],))
+        cursor.execute("""SELECT SUM(prix) AS total FROM Factures inner join Entreprises on Entreprises.num = Factures.numEntreprise inner join Clients on Clients.num = Factures.numClient WHERE Entreprises.siren==(%s) AND Clients.nom=(%s)""",(liste[6][2],liste[6][1]))
 
         rep = cursor.fetchall()
 
@@ -41,16 +41,18 @@ def repondre(id, liste, connect, mr):
             reponse['reponse']['total'] += float(i[0])
 
     else :
-        cursor.execute("""select siren, Factures.numCommande from Entreprises inner join Factures on Factures.numEntreprise = Entreprises.num inner join Commandes on Commandes.num = Factures.numCommande inner join Produits on Produits.numCommande = Factures.numCommande where Produits.produit=(%s)""",(liste[7][2],))
+        cursor.execute("""select DISTINCT(siren), Factures.numCommande from Entreprises inner join Factures on Factures.numEntreprise = Entreprises.num inner join Commandes on Commandes.num = Factures.numCommande inner join Produits on Produits.numCommande = Factures.numCommande inner join Clients on Clients.num = Factures.numClient where Produits.produit=(%s) AND Clients.nom=(%s)""",(liste[7][2],liste[7][1]))
 
         rep = cursor.fetchall()
 
-        reponse['reponse']['type'] = 1
+        reponse['reponse']['type'] = 2
         reponse['reponse']['id_discussion'] = liste[7][0]
         reponse['reponse']['nom_client'] = liste[7][1]
 
         for i in rep:
-            reponse['reponse']['liste_entreprises'].append(i[0])
+            print(i)
+            reponse['reponse']['liste_entreprises'].append(i)
+            
 
 
     jsReponse = json.dumps(reponse, indent=3)

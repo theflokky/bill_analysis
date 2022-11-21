@@ -30,7 +30,6 @@ def show(c):
 def serveurInterface(f, c, lVI):
      # File to work on and more important variable, using a list to bypass immutable variable limitation
     loadFichier(f, c, lVI)
-    commServeur(f)
 
 
 # first half of server application
@@ -158,30 +157,30 @@ def inclureBDD(connection, l, oL):
 def loadFichier(f, c, lVI):
    
     # Background of canvas
-    canvas = Canvas(f, width=400, height=600)
-    canvas.create_rectangle(0, 0, 398, 598, fill='#121212')
+    canvas = Canvas(f, width=800, height=600)
+    canvas.create_rectangle(0, 0, 798, 598, fill='#121212')
 
     # Placeholder if the user wants to read a file to addup to the dataset
-    titleLabel = Label(canvas, text="Chargement Données", width=33, height= 1, font=('Arial', 15), background='#121212', foreground='white')
+    titleLabel = Label(canvas, text="Chargement Données", width=65, height= 1, font=('Arial', 15), background='#121212', foreground='white')
     titleLabel.place(x=15, y=1)
 
 
     # Selecting file widget
 
-    canvas.create_rectangle(50,50, 300, 150, fill='#181818')
+    canvas.create_rectangle(240,50, 500, 150, fill='#181818')
 
     chooseLabel= Label(canvas, text="Choisissez un fichier :",font=('Arial', 10), background="#121212", foreground='white')
     chosenFile = Label(canvas, text="Aucune fichier ouvert...",font=('Arial', 10), width=34)
     chooseButton = Button(canvas, text="choix...", font=('Arial', 10), background='#696969', width=31, command=lambda: choixFichier(chosenFile, lVI))
 
-    chooseLabel.place(x = 52,y = 50)
-    chooseButton.place(x = 52, y = 80)
-    chosenFile.place(x = 52, y = 130)
+    chooseLabel.place(x = 252,y = 50)
+    chooseButton.place(x = 252, y = 80)
+    chosenFile.place(x = 252, y = 130)
 
 
     # Imputing file values in the BDD
 
-    canvas.create_rectangle(50, 200, 300, 300, fill='#181818')
+    canvas.create_rectangle(240, 200, 500, 320, fill='#181818')
 
     # Label for starting loading file
     loadLabel= Label(canvas, text="Lire les données du fichier:",font=('Arial', 10), background="#121212", foreground='white')
@@ -189,8 +188,8 @@ def loadFichier(f, c, lVI):
     # Button for starting function
     loadButton = Button(canvas,text="Lecture", font=('Arial', 10), background='#696969', width=31, height= 5, command = lambda : fact(lVI, confirmLabel, valueLabel))
 
-    loadLabel.place(x = 52, y=200)
-    loadButton.place(x = 50, y = 220)
+    loadLabel.place(x = 252, y=200)
+    loadButton.place(x = 250, y = 220)
     
 
 
@@ -200,8 +199,8 @@ def loadFichier(f, c, lVI):
     # Label for printing values
     valueLabel = Label(canvas, text="Aucune valeur pour le moment", font=('Arial', 8), background="#181818", foreground='white')
 
-    confirmLabel.place(x = 52, y = 330)
-    valueLabel.place(x = 52, y = 350)
+    confirmLabel.place(x = 252, y = 330)
+    valueLabel.place(x = 252, y = 350)
 
     # Button for including in database
 
@@ -217,25 +216,12 @@ def loadFichier(f, c, lVI):
     else :
         pushButton = Label(canvas, text="Impossible d'envoyer des données dans la BDD",font=('Arial', 10), background="#181818", foreground='white')
 
-    infoLabel.place(x = 52, y=510)
-    pushButton.place(x = 52, y=550)
-    okLabel.place(x = 300, y=560)
+    infoLabel.place(x = 252, y=510)
+    pushButton.place(x = 252, y=550)
+    okLabel.place(x = 500, y=560)
 
     # For display if the include went fine
 
 
     canvas.place(x=0, y=0)
 
-
-# Second half of the server application
-
-def commServeur(f):
-    canvas = Canvas(f, width=400, height=600)
-
-    canvas.create_rectangle(0, 0, 395, 598, fill='#121212')
-
-    # Placeholder for information about communication
-    titleLabel = Label(canvas, text="Communications serveur", width=33, height= 1, font=('Arial', 15), background='#121212', foreground='white')
-    titleLabel.place(x=15, y=1)
-
-    canvas.place(x=402, y=0)
