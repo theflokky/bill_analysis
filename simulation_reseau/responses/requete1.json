@@ -1,8 +1,17 @@
 {
    "reponse": {
       "type": 1,
-      "id_discussion": 1,
-      "nom_client": "bonnefoy laurent e entreprise de travaux agricoles",
-      "total": 1230.0
+      "id_discussion": 2,
+      "nom_client": "pierre",
+      "liste_entreprises": [
+         "554 500 199",
+         "554 500 199",
+         "554 500 199",
+         "554 500 199",
+         "554 500 199",
+         "554 500 199",
+         "554 500 199",
+         "554 500 199"
+      ]
    }
 }

@@ -136,11 +136,12 @@ def inclureBDD(connection, l, oL):
         elif isinstance(selector_client, int):
             cursor.execute(""" 
             INSERT INTO Factures (prix, numClient, numEntreprise, numCommande) VALUES (%s, %s, %s, %s)
-    """, (int(float(prix)), selector_client, selector_entreprise[0], selector_commande))
+    """, (int(float(prix)), selector_client, selector_entreprise[0](0), selector_commande))
         else:
+            print(selector_client, selector_entreprise, selector_commande)
             cursor.execute(""" 
             INSERT INTO Factures (prix, numClient, numEntreprise, numCommande) VALUES (%s, %s, %s, %s)
-    """, (int(float(prix)), selector_client[0], selector_entreprise[0], selector_commande))
+    """, (int(float(prix)), selector_client[0][0], selector_entreprise[0][0], selector_commande))
         succesnum += cursor.rowcount
 
 

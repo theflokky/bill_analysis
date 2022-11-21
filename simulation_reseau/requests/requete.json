@@ -1,8 +1,8 @@
 {
    "requete": {
-      "type": 1,
+      "type": 2,
       "id_discussion": 1,
-      "nom_client": "bonnefoy laurent e entreprise de travaux agricoles",
-      "num_siren": "554 500 199"
+      "nom_client": "pierre",
+      "nom_produit": "p00072 excellium pro non routier de qualit\u00e9 sip\u00e9rieure"
    }
 }

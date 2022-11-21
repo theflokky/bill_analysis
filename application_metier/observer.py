@@ -20,12 +20,9 @@ class Watcher:
             event_handler, self.DIRECTORY_TO_WATCH, recursive=True)
         self.observer.start()
 
-        try:
-            while True:
-                time.sleep(1)
-        except:
-            self.observer.stop()
-            print("Error")
+        time.sleep(0.01)
+
+        self.observer.stop()
 
         self.observer.join()
 
@@ -51,9 +48,9 @@ class EventHandler(FileSystemEventHandler):
 def awaitingResponse():
 
     w = Watcher()
-    #w.run()
-    obs = threading.Thread(target=lambda : w.run(), daemon=True)
-    obs.start()
+    w.run()
+    #obs = threading.Thread(target=lambda : w.run(), daemon=True)
+    #obs.start()
 
 def readJson():
     global currentFilePath

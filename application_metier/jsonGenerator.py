@@ -16,10 +16,9 @@ def generateJson2(clienNameInput,productNameInput):
         "type" : 1,
         "id_discussion" : 1,
         "nom_client" : "Tiplouf",
-        "num_siren" : "123456789",
         "nom_produit" : "masterball"
        }}
-      d["requete"]["type"] = "2"
+      d["requete"]["type"] = 2
       d["requete"]["nom_client"] = clienNameInput
       d["requete"]["nom_produit"] = productNameInput
       

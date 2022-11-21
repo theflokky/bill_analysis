@@ -7,7 +7,6 @@ import json
 import os
 
 def repondre(id, liste, connect, mr):
-    print(f"On test la lecture de fichier et le passage d'infos\n{id}\n{liste}\n{connect}\n")
 
     if mr == 1:
         reponse = {'reponse' : {
@@ -42,7 +41,7 @@ def repondre(id, liste, connect, mr):
             reponse['reponse']['total'] += float(i[0])
 
     else :
-        cursor.execute("""SELECT siren AS liste FROM Entreprises inner join Factures on Factures.numEntreprise = Entreprises.num inner join Commandes on Commandes.num = Factures.numCommande inner join Produits on Produits.numCommande = Factures.numCommande WHERE Produits.produit=(%s)""",(liste[7][2],))
+        cursor.execute("""select siren, Factures.numCommande from Entreprises inner join Factures on Factures.numEntreprise = Entreprises.num inner join Commandes on Commandes.num = Factures.numCommande inner join Produits on Produits.numCommande = Factures.numCommande where Produits.produit=(%s)""",(liste[7][2],))
 
         rep = cursor.fetchall()
 
@@ -75,7 +74,6 @@ def repondre(id, liste, connect, mr):
 
 def lectureMessage(f, l, c):
 
-    print("J'ai LU un message\n")
 
     # Lists for stocking info of responses
     lt1 = []
@@ -83,10 +81,12 @@ def lectureMessage(f, l, c):
 
     with open(f, 'r') as file:
         data = json.load(file)
+        
 
         #Checking type of the message
         messageType = data['requete']['type']
         discussionID = data['requete']['id_discussion']
+
 
         # We received a request of total price from a company
         if (messageType == 1):
@@ -116,16 +116,17 @@ def lectureMessage(f, l, c):
 
 
         # We received a request of list of company you have paid delivery
-        elif (messageType == 2):
+        if (messageType == 2):
+
 
             if len(lt2) <= 3:
                 lt2.append(messageType)
                 lt2.append(data['requete']['nom_client'])
-                lt2.append(data['requete']['produit'])
+                lt2.append(data['requete']['nom_produit'])
             else :
                 lt2[0] = messageType
                 lt2[1] = data['requete']['nom_client']
-                lt2[2] = data['requete']['produit']
+                lt2[2] = data['requete']['nom_produit']
 
             # First message
             if len(l) <= 6:
