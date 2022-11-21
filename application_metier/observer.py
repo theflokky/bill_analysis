@@ -55,13 +55,13 @@ def readJson():
         messageType = data['reponse']['type']
         discussionID = data['reponse']['id_discussion']
         clientName = data['reponse']['nom_client']
-        if (messageType == 1):
+        if (messageType == 2):
             enterpriseList = data['reponse']['liste_entreprises']
             file.close()
             os.remove(currentFilePath)
             return enterpriseList
             print(enterpriseList)
-        elif (messageType == 2):
+        elif (messageType == 1):
             total.append(data['reponse']['total'])
             file.close()
             os.remove(currentFilePath)
