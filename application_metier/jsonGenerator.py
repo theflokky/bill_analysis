@@ -19,12 +19,12 @@ def generateJson2(clienNameInput,productNameInput):
         "num_siren" : "123456789",
         "nom_produit" : "masterball"
        }}
-      d["type"] = "2"
-      d["nom_client"] = clienNameInput
-      d["nom_produit"] = productNameInput
+      d["requete"]["type"] = "2"
+      d["requete"]["nom_client"] = clienNameInput
+      d["requete"]["nom_produit"] = productNameInput
       
       tmp.append(d)
-      json.dump(d,f)
+      json.dump(d,f, indent=3)
       f.close();
       with open(REQUEST_PATH, 'r') as j:
        contents = json.loads(j.read())
@@ -43,11 +43,11 @@ def generateJson(clienName, sirenNum):
         "num_siren" : "123456789"
        }}
       
-      d["nom_client"] = clienName
+      d["requete"]["nom_client"] = clienName
      
-      d["num_siren"] = sirenNum
+      d["requete"]["num_siren"] = sirenNum
       
-      json.dump(d,f)
+      json.dump(d,f, indent=3)
       f.close();
       with open(REQUEST_PATH, 'r') as j:
        contents = json.loads(j.read())
