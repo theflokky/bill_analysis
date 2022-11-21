@@ -38,6 +38,9 @@ class EventHandler(FileSystemEventHandler):
         if event.event_type == 'created':
             print("Creation of : ", event.src_path)
             currentFilePath = event.src_path
+        elif event.event_type == 'modified':
+            print("Modification of : ", event.src_path)
+            currentFilePath = event.src_path
 
 
 def awaitingResponse():
