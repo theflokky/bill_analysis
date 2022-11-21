@@ -22,7 +22,7 @@ class Watcher:
 
         #try:
          #   while True:
-        time.sleep(1)
+        time.sleep(10)
 
         #except:
         self.observer.stop()
@@ -36,13 +36,17 @@ class EventHandler(FileSystemEventHandler):
     def on_any_event(event):
         global currentFilePath
         if event.event_type == 'created':
-            print("Creation of : ", event.src_path)
-            print(event.src_path, currentFilePath, "\n")
-            currentFilePath = event.src_path
+            if(event.src_path < currentFilePath and currentFilePath != ""):
+                print("modif on repertory")
+            else :
+                print("Modification of : ", event.src_path)
+                currentFilePath = event.src_path
         elif event.event_type == 'modified':
-            print("Modification of : ", event.src_path)
-            print(event.src_path, currentFilePath, "\n")
-            currentFilePath = event.src_path
+            if(event.src_path < currentFilePath and currentFilePath != ""):
+                print("modif on repertory")
+            else :
+                print("Modification of : ", event.src_path)
+                currentFilePath = event.src_path
 
 
 def awaitingResponse():
