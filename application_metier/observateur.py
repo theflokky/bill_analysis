@@ -75,6 +75,8 @@ def repondre(id, liste, connect, mr):
 
 def lectureMessage(f, l, c):
 
+    print("J'ai LU un message\n")
+
     # Lists for stocking info of responses
     lt1 = []
     lt2 = []
@@ -181,4 +183,7 @@ class Handler(PatternMatchingEventHandler):
 
     def on_any_event(self, event):
         if event.event_type == "created":
+            lectureMessage(event.src_path, self.liste, self.connection)
+
+        elif event.event_type == "modified":
             lectureMessage(event.src_path, self.liste, self.connection)

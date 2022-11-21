@@ -1,8 +1,8 @@
 {
-   "requete": {
+   "reponse": {
       "type": 1,
       "id_discussion": 1,
       "nom_client": "bonnefoy laurent e entreprise de travaux agricoles",
-      "num_siren": "554 500 199"
+      "total": 1230.0
    }
 }
